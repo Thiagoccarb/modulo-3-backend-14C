@@ -1,8 +1,12 @@
-const { readFile } = require('fs').promises;
-
-const archive = 'meu-arquivo.txt';
-readFile(archive, 'utf8')
-  .then((data) => console.log(data))
-  .catch((e) => console.log(e))
+const { question } = require('readline-sync');
+var userName = question('May I have your name? ');
+console.log('Hi ' + userName + '!');
+// const checkAndReadFile = async () => {
   
-  process.exit(1); 
+  // try {
+  //   const data = await readFile(file);
+  //   console.log(data);
+  // } catch(error) {
+  //   console.log('arquivo inexistente');
+  // }
+// }
