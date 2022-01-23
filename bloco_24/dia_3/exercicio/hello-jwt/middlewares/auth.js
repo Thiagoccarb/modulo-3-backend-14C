@@ -1,18 +1,20 @@
 const jwt = require('jsonwebtoken');
 const statusCode = require('http-status-codes').StatusCodes;
+
 const secret = 'mySecret';
 
 module.exports = (req, res, next) => {
+  const AUTHORIZATION = 'authorization';
   try {
-    const token = req.headers['authorization'];
-    if(!token) {
+    const token = req.headers[AUTHORIZATION];
+    if (!token) {
       return res.status(statusCode.FORBIDDEN).json({
-      message: 'token not found'
-      })
+      message: 'token not found',
+      });
     }
-    const decoded = jwt.verify(token, secret)
+    const decoded = jwt.verify(token, secret);
     const { data, data: { admin } } = decoded;
-    if(!admin) {
+    if (!admin) {
       return res.status(statusCode.FORBIDDEN).json({ message: 'restricted access' });
     }
     req.user = data;
@@ -20,4 +22,4 @@ module.exports = (req, res, next) => {
   } catch (err) {
     return res.status(statusCode.FORBIDDEN).json({ message: err.message });
   }
-}
+};
