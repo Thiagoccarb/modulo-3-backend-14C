@@ -4,7 +4,7 @@
   "description": "Esse é um projeto para o conteúdo de `React Testing Library`.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "mocha ./tests/**/*$NAME*.test.js --exit"
   },
   "repository": {
@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/tryber/exercise-sequelize-associations#readme",
   "dependencies": {
-    "dotenv": "^14.2.0",
-    "express": "^4.17.1",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   },
@@ -28,7 +30,7 @@
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
     "mocha": "^9.1.4",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.15",
     "sequelize-cli": "^6.2.0",
     "sinon": "^12.0.1"
   }
