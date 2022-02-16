@@ -1,23 +1,23 @@
-enum Color {
+export enum Color {
   white,
   black,
   red,
   silver,
 }
 
-enum Port {
+export enum Port {
   leftFront = 'leftFront',
   rightFront = 'rightFront',
   leftRear = 'leftRear',
   rightRear = 'rightRear',
 };
 
-enum Direction {
+export enum Direction {
   left = 'left',
   right = 'right',
 };
 
-class Car {
+export class Car {
   brand: string;
   color: Color;
   doors: number;
