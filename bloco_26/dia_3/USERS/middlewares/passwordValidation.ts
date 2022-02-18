@@ -8,7 +8,7 @@ function validadePassword(req: Request, res: Response, next: NextFunction) {
   const isValid: boolean = regex.test(password);
   if (!isValid) {
     return res.status(StatusCode.UNPROCESSABLE_ENTITY).json({
-      message: `password must have between 6 to 12 characters`,
+      message: `password must be between 6 to 12 characters`,
     });
   }
   next()
