@@ -24,7 +24,7 @@ class Student {
   }
 
   get workScores() {
-    return this.workScores;
+    return this._workScores;
   }
   set name(newName: string) {
     this._name = newName;
