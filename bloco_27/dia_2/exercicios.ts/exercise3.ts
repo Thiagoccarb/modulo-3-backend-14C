@@ -1,4 +1,4 @@
-interface Employee {
+export default interface Employee {
   registration: string;
   salary: number;
   admissionDate: Date;
@@ -12,7 +12,6 @@ const testInterfaceEmployee: Employee = {
     admissionDate: new Date(),
     generateRegistration(): string {
         const randomStr = String(Date.now() * (Math.random() + 1)).replace(/\W/g, '');// /\W/ is a metacharacter matcher for non-word characters
-
         return `FNC${randomStr}`;
     }
 }
