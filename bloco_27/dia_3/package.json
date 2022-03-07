@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && node ./exemplos-ficacao/static-class.js"
+    "start": "npx tsc -t es5 ./exercicios/index.ts"
   },
   "keywords": [],
   "author": "",

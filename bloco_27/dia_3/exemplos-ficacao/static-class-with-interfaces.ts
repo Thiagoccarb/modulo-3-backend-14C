@@ -2,7 +2,7 @@
 // Agora imagine que você queira agora criar uma classe contrato, que vai possuir uma pessoa corretora, que pode ser tanto uma pessoa física quanto uma pessoa jurídica.
 // Ao passar simplesmente Pessoa como tipo da pessoa corretora, você perde a capacidade de acessar elementos específicos das classes PessoaFísica e PessoaJurídica .
 
-interface Person {
+export interface Person {
   id: number;
   name: string;
   showIdentification(): void;
