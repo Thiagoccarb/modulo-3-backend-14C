@@ -1,51 +1,42 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+// ./Person.ts
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrdinaryPerson = exports.Person = void 0;
-var Person = /** @class */ (function () {
-    function Person(_name) {
-        this._name = _name;
-        Person.personCount++;
+exports.Person = void 0;
+class Person {
+    constructor(name, birthDate) {
+        this._name = String();
+        this._birthDate = new Date();
+        this.name = name;
+        this.birthDate = birthDate;
     }
-    Object.defineProperty(Person.prototype, "name", {
-        get: function () {
-            return this._name;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Person.personCount = 0;
-    return Person;
-}());
+    get name() {
+        return this._name;
+    }
+    set name(value) {
+        this.validateName(value);
+        this._name = value;
+    }
+    get birthDate() {
+        return this._birthDate;
+    }
+    set birthDate(value) {
+        this.validateBirthDate(value);
+        this._birthDate = value;
+    }
+    static age(value) {
+        const diff = Math.abs(new Date().getTime() - value.getTime()); // diferença em milissegundos entre a data atual e a data passada por parâmetro
+        const yearMs = 31536000000; // 1 ano = 31536000000 milissegundos
+        return Math.floor(diff / yearMs);
+    }
+    validateName(value) {
+        if (value.length < 3)
+            throw new Error('O nome deve conter no mínimo 3 caracteres.');
+    }
+    validateBirthDate(value) {
+        if (value.getTime() > new Date().getTime())
+            throw new Error('A data de nascimento não pode ser uma data no futuro.');
+        if (Person.age(value) > 120)
+            throw new Error('A pessoa deve ter no máximo 120 anos.');
+    }
+}
 exports.Person = Person;
-var OrdinaryPerson = /** @class */ (function (_super) {
-    __extends(OrdinaryPerson, _super);
-    function OrdinaryPerson(_cpf, name) {
-        var _this = _super.call(this, name) || this;
-        _this._cpf = _cpf;
-        return _this;
-    }
-    Object.defineProperty(OrdinaryPerson.prototype, "cpf", {
-        get: function () {
-            return this._cpf;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return OrdinaryPerson;
-}(Person));
-exports.OrdinaryPerson = OrdinaryPerson;
