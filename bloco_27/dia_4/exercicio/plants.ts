@@ -83,7 +83,7 @@ export class Plants implements IPlant {
     return removedPlant;
   }
 
-  async getPlantsThatNeedsSunWithId(id: string): Promise<IPlant[]> {
+  static async getPlantsThatNeedsSunWithId(id: string): Promise<IPlant[]> {
     const plantsRaw = await fs.readFile(file, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
@@ -97,7 +97,7 @@ export class Plants implements IPlant {
     return filteredPlants;
   }
 
-  async editPlant(plantId: string, newPlant: IPlant): Promise<IPlant> {
+  static async editPlant(plantId: string, newPlant: IPlant): Promise<IPlant> {
     const plantsRaw = await fs.readFile(file, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
@@ -110,7 +110,7 @@ export class Plants implements IPlant {
     return newPlant;
   }
 
-  async savePlant(plant: IPlant): Promise<IPlant> {
+  static async savePlant(plant: IPlant): Promise<IPlant> {
     const plantsRaw = await fs.readFile(file, { encoding: 'utf8' });
     const plants: IPlant[] = JSON.parse(plantsRaw);
 
